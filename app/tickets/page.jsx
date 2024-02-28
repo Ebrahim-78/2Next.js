@@ -1,11 +1,17 @@
-import React from 'react'
+// server components
 
+import React from 'react'
+import TicketList from './TicketList'
 export default function Tickets() {
   return (
     <main>
-        <div>
+        <nav>
+          <div>
             <h2>Tickets</h2>
-        </div>
+            <p><small>Cruuently open tickets</small></p>
+          </div>
+        </nav>
+        <TicketList />
     </main>
   )
 }
