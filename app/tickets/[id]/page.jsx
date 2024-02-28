@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import Loading from '@/app/loading'
 export const dynamicParams = true
 
 export async function generateStaticParams() {
@@ -14,9 +15,12 @@ export async function generateStaticParams() {
 import React from 'react'
 
 async function getTicket(id){
+    // imitate delay
+    await new Promise(resolve => setTimeout(resolve,3000))
+    
     const res = await fetch(`http://localhost:4000/tickets/${id}`, {
         next:{
-            revalidate:0  // 0 to refrech all the time
+            revalidate:60  // 0 to refrech all the time
         }
     })
 

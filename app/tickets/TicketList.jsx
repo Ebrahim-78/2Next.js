@@ -1,6 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
+import Loading from '@/app/loading'
+import { resolve } from 'styled-jsx/css'
+
 async function getTickets(){
+
+    // imitate delay
+    await new Promise(resolve => setTimeout(resolve,2500))
+    
     const res = await fetch('http://localhost:4000/tickets', {
         next:{
             revalidate:30  // 0 to refrech all the time
