@@ -23,7 +23,8 @@ export default function CreateForm() {
             body: JSON.stringify(ticket)
         })
 
-        if(res.status ===201) {
+        if(res.status === 201) {
+            router.refresh(),
             router.push('/tickets')
         }
 
